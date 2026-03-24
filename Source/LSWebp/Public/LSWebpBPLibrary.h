@@ -1,0 +1,89 @@
+
+#pragma once
+
+
+#include "CoreMinimal.h"
+
+#include "Kismet/BlueprintFunctionLibrary.h"
+
+#include "LSWebpType.h"
+
+#include "LSWebpBPLibrary.generated.h"
+
+
+/** Interacte with Blurpint API */
+UCLASS()
+class LSWEBP_API ULSWebpBPLibrary : public UBlueprintFunctionLibrary
+{
+	GENERATED_BODY()
+
+public:
+
+
+	/**
+	 * BeginRecord every frame data within specific viewport pixel coordinate
+	 * @param	WorldContextObject
+	 * @param	InGeneratedWebpPicturesPath		The Path will be used to save.Such as : "D:/Webp/XgPicture.webp".
+	 *											The directory must be established.Path can not be root directory.Such as :"D:/xgPicture.webp"
+	 *											The extension must end with ".webp"
+	 * @param	InWebpPictureInformation		(X0,Y0)->(X1,Y1)If you want to get the pictrue size with 600x600,you can input (0,0) and (599,599)
+	 *											If you want to get the center of viewport picture with 600x600,when Screen Size is 1920x1080,maybe
+	 *											you can input (660,240) and(1259,839).Becasue our viewport size is 1920x1080.but it starts with (0,0),
+	 *											end with (1919,1079).
+	 * @param	bBegin							Whether to succeed to begin Recording Webp
+	 * @return
+	 */
+	UFUNCTION(BlueprintCallable, Category = "LSWebp", meta = (WorldContext = "WorldContextObject", DisplayName = "BeginRecord"))
+		static	void BeginRecord(
+			UObject* WorldContextObject,
+			FString InGeneratedWebpPicturesPath,
+			FLSWebpPictureInformation InWebpPictureInformation,
+			bool& bBegin);
+
+
+	/**
+	 * BeginRecord every frame date with full viewport size
+	 * @param	WorldContextObject
+	 * @param	InGeneratedWebpPicturesPath		The Path will be used to save.Such as : "D:/Webp/XgPicture.webp".
+	 *											The directory must be established.Path can not be root directory.Such as :"D:/xgPicture.webp"
+	 *											The extension must end with ".webp"
+	 * @param	bBegin							Whether to succeed to begin Recording Webp
+	 * @return
+	 */
+	UFUNCTION(BlueprintCallable, Category = "LSWebp", meta = (WorldContext = "WorldContextObject", DisplayName = "BeginRecordFullViewport"))
+		static	void BeginRecordFullViewport(
+			UObject* WorldContextObject,
+			FString InGeneratedWebpPicturesPath,
+			bool& bBegin);
+
+	/**
+	 * End to record date ,Then to generate Webp.It may be long time,so it is async.please wait to call back from InFinishWebpBPDegelete.
+	 * @param	WorldContextObject
+	 * @param	InFinishWebpBPDegelete			When gerating webp is finished,call InFinishWebpBPDegelete to execute.
+	 * @return
+	 */
+	UFUNCTION(BlueprintCallable, Category = "LSWebp", meta = (WorldContext = "WorldContextObject", DisplayName = "EndRecord"))
+		static	void EndRecord(UObject* WorldContextObject, FLSWebpFinishGenerateWebp InFinishWebpBPDegelete);
+
+
+	/**
+	 * Load the webp with the path.The path must be EndWith ".webp".After you decide to not to show webp, you must call ReleaseLoadedWebp().
+	 * Do not  call many time load webp at the same time.
+	 * @param	WorldContextObject
+	 * @param	InLoadAndShowEbpDegelete	If you load tight webp,you will get the result,about UTexture2D changed with time,and width and height.
+	 * @return	
+	 */
+	UFUNCTION(BlueprintCallable, Category = "LSWebp", meta = (WorldContext = "WorldContextObject", DisplayName = "LoadWebp"))
+		static	void LoadWebp(UObject* WorldContextObject, FLSWebpLoadAndShowWebp InLoadAndShowWebpDegelete, FString InWebpFilePath);
+
+	/**
+	 * @brief	If you Load webp ,you mush call this to release resource
+	 * @param	WorldContextObject
+	 * @return
+	 */
+	UFUNCTION(BlueprintCallable, Category = "LSWebp", meta = (WorldContext = "WorldContextObject", DisplayName = "ReleaseLoadedWebp"))
+	static void ReleaseLoadedWebp(UObject* WorldContextObject);
+
+
+
+};
