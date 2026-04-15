@@ -22,28 +22,34 @@
 ## 蓝图配置与使用示例
 
 **操作说明：**
-在示例逻辑中，我们通过绑定键盘按键1来触发录制。调用 `BeginRecordFullViewport` 节点即可开始捕捉当前视口的所有画面。
+项目在关卡蓝图中绑定键盘按键1来触发录制。录制分为全屏录制和自定义尺寸录制，调用 `BeginRecordFullViewport` 节点是开始捕捉当前视口的所有画面，`BeginRecord`则是可以自定义视口画面尺寸。
 * **注意**：请确保保存路径以 `.webp` 结尾。
 
 **蓝图截图：**
-![开始录制逻辑](https://github.com/user-attachments/assets/d5197868-da36-4e97-9d9e-be04d765a26f)
-![结束录制逻辑](https://github.com/user-attachments/assets/c51a73bb-cbc5-4349-b493-8463bb8c9d3d)
+开始录制全屏蓝图
+![开始录制全屏逻辑](https://github.com/user-attachments/assets/d5197868-da36-4e97-9d9e-be04d765a26f)
+开始录制选取范围画面蓝图
+![开始录制选定范围逻辑](https://github.com/user-attachments/assets/c51a73bb-cbc5-4349-b493-8463bb8c9d3d)
 
 ### 2. 结束录制 (End Record)
 **操作说明：**
-当按下键盘按键2时，调用 `EndRecord` 节点。该节点会停止捕捉并开始异步合成 WebP 文件。可以通过回调委托（Delegate）来获取生成完成的通知。
+当按下键盘按键2时，调用 `EndRecord` 节点。该节点会停止捕捉并开始异步合成 WebP 文件。
 
 **蓝图截图：**
-`![加载逻辑](https://github.com/user-attachments/assets/5faa8230-da1d-416d-bcd5-36d11058f000)`
+结束录制蓝图
+![结束录制逻辑](https://github.com/user-attachments/assets/5faa8230-da1d-416d-bcd5-36d11058f000)
 
 
 ### 3. 加载录制 (End Record)
 **配置说明：**
-
+在创建设置好材质以及在地图上生成好材质之后，可以按下键盘按键3来调用`LoadRecord` 节点以及动态生成材质纹理让材质调用之前录制好的画面。
 
 
 **蓝图截图：**
-![释放逻辑](https://github.com/user-attachments/assets/c99e00bd-1500-4fcf-8383-222a3be3d996)
+
+![材质设置](https://github.com/user-attachments/assets/189a1a5f-ab7f-4933-a255-ff971bd30e58)
+
+![加载录制画面逻辑](https://github.com/user-attachments/assets/c99e00bd-1500-4fcf-8383-222a3be3d996)
 
 ---
 
