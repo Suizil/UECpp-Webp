@@ -27,8 +27,7 @@
 
 
 **蓝图截图：**
-![开始录制蓝图截图](<img width="1177" height="454" alt="image" src="https://github.com/user-attachments/assets/d205ba89-0d53-496e-844b-52cfa7bf369a" />
-)
+![开始录制蓝图截图](在此处替换为您的结束录制图片链接)
 
 
 ### 2. 结束录制与导出 (End Record)
