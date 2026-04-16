@@ -27,9 +27,9 @@
 
 **蓝图截图：**
 开始录制全屏蓝图
-![开始录制全屏逻辑](https://github.com/user-attachments/assets/d5197868-da36-4e97-9d9e-be04d765a26f)
+![开始录制全屏逻辑](https://github.com/user-attachments/assets/833ed826-aa22-4672-99c0-edc4060d7b49)
 开始录制选取范围画面蓝图
-![开始录制选定范围逻辑](https://github.com/user-attachments/assets/c51a73bb-cbc5-4349-b493-8463bb8c9d3d)
+![开始录制选定范围逻辑](https://github.com/user-attachments/assets/1b76d121-2c4e-4af9-a093-73abca8fdec4)
 
 ### 2. 结束录制 (End Record)
 **操作说明：**
@@ -49,7 +49,7 @@
 
 ![材质设置](https://github.com/user-attachments/assets/189a1a5f-ab7f-4933-a255-ff971bd30e58)
 
-![加载录制画面逻辑](https://github.com/user-attachments/assets/c99e00bd-1500-4fcf-8383-222a3be3d996)
+![加载录制画面逻辑](https://github.com/user-attachments/assets/4cc0dc0a-2320-472e-87d3-aa8495e2a1c3)
 
 ---
 
